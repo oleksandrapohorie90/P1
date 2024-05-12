@@ -49,6 +49,7 @@ public class SimpleTextCompressionAlgorithm {
         return map;
     }
 
+    //to create a file using numbers instead of words
     public void compress(Map<String, Integer> map, boolean compress) {
         BufferedWriter writer = null;
         BufferedReader reader = null;

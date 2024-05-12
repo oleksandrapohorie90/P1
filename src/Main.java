@@ -14,11 +14,11 @@ public class Main {
 //        }
 
         Map<String, Integer> map = compressor.createMap(words);
-        //this map
-        for (String key : map.keySet()) {
-            Integer value = map.get(key);
-            System.out.println("Key: " + key + ", Value: " + value);
-        }
+        //this iterates the map and shows what we have in the map after we passed List as a param
+//        for (String key : map.keySet()) {
+//            Integer value = map.get(key);
+//            System.out.println("Key: " + key + ", Value: " + value);
+//        }
 
         compressor.compress(map, true);
         compressor.compress(map, false);
