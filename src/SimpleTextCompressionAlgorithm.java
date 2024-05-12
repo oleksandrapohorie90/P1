@@ -38,7 +38,8 @@ public class SimpleTextCompressionAlgorithm {
     public Map<String, Integer> createMap(List<String> words) {
         Map<String, Integer> map = new HashMap<>();
         int count = 0;
-
+        //get the 1st word and put in the map as a key
+        //if map contains the key - ignore
         for (String word : words) {
             if (!map.containsKey(word)) {
                 map.put(word, count);
