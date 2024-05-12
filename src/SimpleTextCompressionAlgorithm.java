@@ -54,7 +54,11 @@ public class SimpleTextCompressionAlgorithm {
         return map;
     }
 
-    //to create a file using numbers instead of words
+    /** create a file using numbers instead of words
+     this method either compresses or decompresses text based on the boolean parameter compress; for compression, it reads from INPUT_FILE_PATH and writes to OUTPUT_FILE_PATH, replacing each word with its corresponding integer from the map;
+     for decompression, it reads from OUTPUT_FILE_PATH and writes to READABLE_FILE_PATH, replacing each integer with its corresponding word using the getKey method;
+     it writes each transformed line to the appropriate file, ensuring to add new lines as needed.
+     */
     public void compress(Map<String, Integer> map, boolean compress) {
         BufferedWriter writer = null;
         BufferedReader reader = null;
