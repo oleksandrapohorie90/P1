@@ -36,9 +36,9 @@ public class SimpleTextCompressionAlgorithm {
     }
 
     /**
-     -This method creates a map from a list of words where each word is assigned a unique integer.
-     -It iterates over the list of words, and for each word not already in the map, it adds the word with an incrementing integer value as its mapped value.
-     -The map is then returned, with words as keys and their corresponding integers as values.
+     this method assings words to its numbers by creating a map from a list of words where each word is assigned a unique integer;
+     it iterates over the list of words, and for each word not already in the map, adds the word with an incrementing integer value as its mapped value;
+     then map is returned, with words as keys and their corresponding integers as values;
      */
     public Map<String, Integer> createMap(List<String> words) {
         Map<String, Integer> map = new HashMap<>();
@@ -87,6 +87,10 @@ public class SimpleTextCompressionAlgorithm {
         }
     }
 
+    /**
+     this method is for decompressing, it reads integers from OUTPUT_FILE_PATH and writes the corresponding words to READABLE_FILE_PATH;
+     it performs similar operations as the decompression part of the compress method, but it is a standalone method;
+     */
     public void decompress(Map<String, Integer> map) {
         try {
             BufferedReader reader = new BufferedReader(new FileReader(OUTPUT_FILE_PATH));
@@ -113,6 +117,10 @@ public class SimpleTextCompressionAlgorithm {
         }
     }
 
+    /**
+     this utility method retrieves a key (word) from the map based on a given value (integer);
+     it iterates over the entries in the map and returns the key where the value matches the given integer
+     */
     public String getKey(Map<String, Integer> map, int value) {
         for (Map.Entry<String, Integer> entry : map.entrySet()) {
 
