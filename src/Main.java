@@ -10,18 +10,17 @@ public class Main {
         List<String> words = compressor.getAllWords();
         //printing all words in the file to see what we have read from the file
 //        for (String word : words) {
-//            System.out.println("Word: " + word);
+//            System.out.println("each word: " + word);
 //        }
 
         Map<String, Integer> map = compressor.createMap(words);
         //this iterates the map and shows what we have in the map after we passed List as a param
 //        for (String key : map.keySet()) {
 //            Integer value = map.get(key);
-//            System.out.println("Key: " + key + ", Value: " + value);
+//            System.out.println("each key: " + key + ", each value: " + value);
 //        }
 
         compressor.compress(map, true);
-        //compressor.compress(map, false);
         compressor.decompress(map);
         try {
             compressor.compareFiles();
