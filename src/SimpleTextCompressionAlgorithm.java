@@ -11,11 +11,11 @@ public class SimpleTextCompressionAlgorithm {
     private static final String READABLE_FILE_PATH = "src/files/readable.txt";
     private static final String OUTPUT_FILE_PATH = "src/files/output.sc";
 
-    /**this method is just to get all the files from the INPUT_FILE
+    /** this method is just to get all the files from the INPUT_FILE
     RETURN List of all words
      */
     public List<String> getAllWords() {
-        //list for words that loop will put
+        //list for words found in the file to return
         List<String> words = new ArrayList<>();
         //BufferedReader allows to read a file line by line
         try (BufferedReader reader = new BufferedReader(new FileReader(INPUT_FILE_PATH))) {
@@ -35,6 +35,11 @@ public class SimpleTextCompressionAlgorithm {
         }
     }
 
+    /**
+     -This method creates a map from a list of words where each word is assigned a unique integer.
+     -It iterates over the list of words, and for each word not already in the map, it adds the word with an incrementing integer value as its mapped value.
+     -The map is then returned, with words as keys and their corresponding integers as values.
+     */
     public Map<String, Integer> createMap(List<String> words) {
         Map<String, Integer> map = new HashMap<>();
         int count = 0;
@@ -80,7 +85,6 @@ public class SimpleTextCompressionAlgorithm {
         } catch (IOException e) {
             System.err.println("Error writing to file: " + e.getMessage());
         }
-
     }
 
     public void decompress(Map<String, Integer> map) {
@@ -116,7 +120,6 @@ public class SimpleTextCompressionAlgorithm {
                 return entry.getKey();
             }
         }
-
         return null;
     }
 
