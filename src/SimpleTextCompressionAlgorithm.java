@@ -11,20 +11,25 @@ public class SimpleTextCompressionAlgorithm {
     private static final String READABLE_FILE_PATH = "src/files/readable.txt";
     private static final String OUTPUT_FILE_PATH = "src/files/output.sc";
 
+    /**this method is just to get all the files from the INPUT_FILE
+    RETURN List of all words
+     */
     public List<String> getAllWords() {
+        //list for words that loop will put
         List<String> words = new ArrayList<>();
-
+        //BufferedReader allows to read a file line by line
         try (BufferedReader reader = new BufferedReader(new FileReader(INPUT_FILE_PATH))) {
-            String line;
-
+            String line; //to store the first line of the file and so on
+            //if line is null that means we are at the end of the file, if not null we continue reading line by line
             while ((line = reader.readLine()) != null) {
                 for (var word : line.split("\s")) {
-                    words.add(word);
+                    words.add(word);//splitting by space in above line and adding each word into List words
                 }
             }
+            //to close the file, we opened the file by creating an object, line 21
             reader.close();
         } catch (IOException e) {
-            System.err.println("Error al leer el archivo: " + e.getMessage());
+            System.err.println("Error writing to file: " + e.getMessage());
         } finally {
             return words;
         }
