@@ -21,8 +21,8 @@ public class Main {
 //        }
 
         compressor.compress(map, true);
-        compressor.compress(map, false);
-        //compressor.decompress(map);
+        //compressor.compress(map, false);
+        compressor.decompress(map);
         try {
             compressor.compareFiles();
         } catch (IOException ex) {

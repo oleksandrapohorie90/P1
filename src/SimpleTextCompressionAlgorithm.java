@@ -59,16 +59,19 @@ public class SimpleTextCompressionAlgorithm {
      for decompression, it reads from OUTPUT_FILE_PATH and writes to READABLE_FILE_PATH, replacing each integer with its corresponding word using the getKey method;
      it writes each transformed line to the appropriate file, ensuring to add new lines as needed.
      */
-    public void compress(Map<String, Integer> map, boolean compress) {
+        public void compress(Map<String, Integer> map, boolean compress) {
+            //read the file and write in the readable line by line, read from the map
         BufferedWriter writer = null;
         BufferedReader reader = null;
 
         try {
+            //going to read the file again
             reader = new BufferedReader(new FileReader(compress ? INPUT_FILE_PATH : OUTPUT_FILE_PATH));
             writer = new BufferedWriter(new FileWriter(compress ? OUTPUT_FILE_PATH : READABLE_FILE_PATH));
             String line;
-
+            //using the same logic from the getAllWords()
             while ((line = reader.readLine()) != null) {
+                //variable to put back in the line
                 String newLine = "";
 
                 for (var word : line.split("\s")) {
@@ -102,7 +105,7 @@ public class SimpleTextCompressionAlgorithm {
             String line;
 
             while ((line = reader.readLine()) != null) {
-                String newLine = "";
+                        String newLine = "";
 
                 for (var word : line.split("\s")) {
                     newLine += getKey(map, Integer.valueOf(word)) + " ";
