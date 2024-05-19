@@ -138,6 +138,9 @@ public class SimpleTextCompressionAlgorithm {
         return null;
     }
 
+    /**
+     this utility method compares 2 files the original one - INPUT file and the last version that was generated - READABLE file, in the while loop the files are read line by line and then checked if they are equal line by line, as soon as there is a difference boolean differences - then it breaks out the loop and when the execution is finished it will print "Files are not identical", if lines do match then it will print "Files are identical"
+     */
     public void compareFiles() throws IOException {
         BufferedReader reader1 = new BufferedReader(new InputStreamReader(new FileInputStream(INPUT_FILE_PATH), StandardCharsets.UTF_8));
         BufferedReader reader2 = new BufferedReader(new InputStreamReader(new FileInputStream(READABLE_FILE_PATH), StandardCharsets.UTF_8));
