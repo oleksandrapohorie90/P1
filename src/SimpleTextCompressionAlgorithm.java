@@ -61,8 +61,8 @@ public class SimpleTextCompressionAlgorithm {
      */
         public void compress(Map<String, Integer> map, boolean compress) {
             //read the file and write in the readable line by line, read from the map
-        BufferedWriter writer = null;
-        BufferedReader reader = null;
+        BufferedWriter writer;
+        BufferedReader reader;
 
         try {
             //going to read the file again
@@ -72,17 +72,17 @@ public class SimpleTextCompressionAlgorithm {
             //using the same logic from the getAllWords()
             while ((line = reader.readLine()) != null) {
                 //variable to put back in the line
-                String newLine = "";
+                StringBuilder newLine = new StringBuilder();
 
                 for (var word : line.split("\s")) {
                     if (compress)
-                        newLine += map.get(word) + " ";
+                        newLine.append(map.get(word)).append(" ");
                     else
-                        newLine += getKey(map, Integer.valueOf(word)) + " ";
+                        newLine.append(getKey(map, Integer.parseInt(word))).append(" ");
                 }
 
-                newLine = newLine.substring(0, newLine.length() - 1);
-                writer.write(newLine);
+                newLine = new StringBuilder(newLine.substring(0, newLine.length() - 1));
+                writer.write(newLine.toString());
 
                 if (reader.ready())
                     writer.newLine();
@@ -105,14 +105,14 @@ public class SimpleTextCompressionAlgorithm {
             String line;
 
             while ((line = reader.readLine()) != null) {
-                        String newLine = "";
+                        StringBuilder newLine = new StringBuilder();
 
                 for (var word : line.split("\s")) {
-                    newLine += getKey(map, Integer.valueOf(word)) + " ";
+                    newLine.append(getKey(map, Integer.parseInt(word))).append(" ");
                 }
 
-                newLine = newLine.substring(0, newLine.length() - 1);
-                writer.write(newLine);
+                newLine = new StringBuilder(newLine.substring(0, newLine.length() - 1));
+                writer.write(newLine.toString());
 
                 if (reader.ready())
                     writer.newLine();
